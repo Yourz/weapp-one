@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<template name="vol-item">
+  <view class="vol-card">
+    <image class="vol-picture" src="{{item.hp_img_url}}" mode="aspectFill"><text class="vol-number">{{item.hp_title}}</text></image>
+    <view class="vol-meta">   
+      <text class="vol-author">{{item.hp_author}}</text>
+    </view>
+    <view class="vol-content">
+      <text class="vol-content-text">{{item.hp_content[0]}}</text>
+      <text class="vol-content-quote">{{item.hp_content[1]}}</text>
+    </view>
+  </view>
+</template>
+
+<view class="container">
+  <swiper class="vol-swiper" current="{{current}}" bindchange="handleChange">
+    <block wx:for="{{vols}}" wx:for-index="idx" wx:key="{{hpcontent_id}}">
+      <swiper-item class="vol-swiper-item">
+        <template is="vol-item" data="{{item: item}}"/>
+      </swiper-item>
+    </block>
+    <swiper-item></swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,75 @@
+<!--pages/detail/detail.wxml-->
+<template name="vol-item">
+  <view class="vol-card">
+    <image class="vol-picture" src="{{item.hp_img_url}}" mode="aspectFill"></image>
+    <view class="vol-meta">  
+        <text class="vol-number">{{item.hp_title}}</text> 
+      <text class="vol-author">{{item.hp_author}}</text>
+    </view>
+    <view class="vol-content">
+      <text class="vol-content-text">{{item.hp_content[0]}}</text>
+    </view>
+    <view class="vol-makettime">
+      <text class="vol-makettime-text">{{item.hp_makettime}}</text>
+    </view>
+  </view>
+</template>
+<template name="essay-item">
+  <view class="article-card">
+    <view class="article-header">
+      <text class="article-title">{{item.hp_title}}</text>
+      <text class="article-author">文/{{item.hp_author}}</text>
+    </view>
+    <view class="article-content">
+      <text class="article-content-text">{{item.hp_content}}</text>
+    </view>
+  </view>
+</template>
+<template name="serial-item">
+  <view class="article-card">
+    <view class="article-header">
+      <text class="article-title">{{item.title}}</text>
+      <text class="article-author">文/{{item.author.user_name}}</text>
+    </view>
+    <view class="article-content">
+      <text class="article-content-text">{{item.content}}</text>
+    </view>
+  </view>
+</template>
+<template name="question-item">
+  <view class="article-card">
+    <view class="article-header">
+      <text class="article-title">{{item.question_title}}</text>
+      <text class="question-asker">{{item.asker.user_name}} 问道</text>
+    </view>
+    <view class="question-content">
+      <text class="question-content-text">{{item.question_content}}</text>
+      <text class="question-answerer">{{item.answerer.user_name}} 说:</text>
+      <text class="answer-content-text">{{item.answer_content}}</text>
+    </view>
+  </view>
+</template>
+<template name="music-item">
+  <view class="music-card">
+    <audio src="{{item.web_url}}"></audio>
+    <view class="music-info">
+      <text class="music-name">{{item.title}}</text>
+      <text class="music-album">{{item.album}}</text>
+      <text class="music-singer">{{item.author.user_name}}</text>
+    </view>
+    <view class="music-header">
+      <text class="music-title">{{item.story_title}}</text>
+      <text class="music-author">文/{{item.story_author.user_name}}</text>
+    </view>
+    <view class="music-content">
+      <text class="music-content-text">{{item.story}}</text>
+    </view>
+  </view>
+</template>
+<view class="container">
+  <template wx:if="{{type === 'vol'}}"is="vol-item" data="{{item: detail}}"/>
+  <template wx:if="{{type === 'essay'}}"is="essay-item" data="{{item: detail}}"/>
+  <template wx:if="{{type === 'serialcontent'}}"is="serial-item" data="{{item: detail}}"/>
+  <template wx:if="{{type === 'question'}}"is="question-item" data="{{item: detail}}"/>
+  <template wx:if="{{type === 'music'}}"is="music-item" data="{{item: detail}}"/>
+</view>
