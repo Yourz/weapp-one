@@ -1,5 +1,5 @@
 # weapp-one
-![image](http://pa.poco.cn/?174492143&http://my.poco.cn/album/album_show_details.php?user_id=174492143&item_id=221410062)
+![image](https://github.com/Yourz/weapp-one/raw/master/image/one.gif)
 
 
 ## 项目描述
